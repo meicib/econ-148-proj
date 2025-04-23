@@ -1,7 +1,25 @@
 import pandas as pd
 import numpy as np
 
+def standardize_column_names(df):
+    """
+    This function standardizes all column names to uppercase to avoid case sensitivity issues.
+    """
+    if df is None:
+        return None
+    # Create a mapping of lowercase to uppercase column names
+    column_map = {col: col.upper() for col in df.columns}
+    # Rename all columns to uppercase
+    df = df.rename(columns=column_map)
+    return df
+
 def process_cps_data(df):
+    # Make a copy of the dataframe to avoid modifying the original
+    df = df.copy()
+    
+    # Standardize column names to uppercase to ensure consistency
+    df.columns = [col.upper() for col in df.columns]
+    
     # Filter age range
     df = df[(df['AGE'] >= 21) & (df['AGE'] <= 58)]
     
@@ -206,8 +224,49 @@ def calculate_summary_stats(df):
     
     return final_table
 
-# Example usage:
-# df = pd.read_sas('marcps_w.sas7bdat')
-# processed_df = process_cps_data(df)
-# summary_stats = calculate_summary_stats(processed_df)
-# print(summary_stats) 
+def load_and_process_data(file_path):
+    """
+    Load data from file and process it
+    
+    Parameters:
+    file_path (str): Path to the data file
+    
+    Returns:
+    pd.DataFrame: Processed dataframe
+    """
+    try:
+        # Try to determine file format and load accordingly
+        if file_path.endswith('.csv'):
+            df = pd.read_csv(file_path)
+        elif file_path.endswith('.sas7bdat'):
+            df = pd.read_sas(file_path)
+        elif file_path.endswith('.dta'):
+            df = pd.read_stata(file_path)
+        else:
+            raise ValueError(f"Unsupported file format: {file_path}")
+        
+        # Process the data
+        processed_df = process_cps_data(df)
+        return processed_df
+    except Exception as e:
+        print(f"Error loading or processing data: {e}")
+        return None
+
+# Example of how to use this module
+if __name__ == "__main__":
+    # Path to your data file
+    file_path = "path/to/your/marcps_w.sas7bdat"  # Update this with your actual file path
+    
+    # Load and process the data
+    processed_data = load_and_process_data(file_path)
+    
+    if processed_data is not None:
+        # Calculate summary statistics
+        summary_stats = calculate_summary_stats(processed_data)
+        
+        # Display the results
+        print(summary_stats)
+        
+        # Optionally save to Excel or CSV
+        # summary_stats.to_excel("table1_results.xlsx")
+        # summary_stats.to_csv("table1_results.csv") 

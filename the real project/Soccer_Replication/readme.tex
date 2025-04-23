@@ -1,0 +1,116 @@
+% ----------------------------------------------------------------- %
+%  Civil War Exposure and Violence Read Me			%
+% ----------------------------------------------------------------- %
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{longtable}
+\usepackage{bbm}
+\usepackage{ctable}
+\usepackage{comment}
+\usepackage{epsf}
+\usepackage{fancyhdr}
+\usepackage{graphicx} 
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage[round]{natbib}
+\usepackage{setspace}
+\usepackage{subfig}
+\usepackage{lscape}
+\usepackage{pdfpages}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{booktabs}
+\usepackage{soul}
+\usepackage{graphics}
+\usepackage{float}
+
+\DeclareRobustCommand{\prob}[1][P]{\ensuremath {\mathbb{#1}}}
+\DeclareRobustCommand{\expect}[0]{{\mathbb E}}
+\DeclareRobustCommand{\variance}[0]{{\mathbb V}}
+\DeclareRobustCommand{\indicator}[0]{{\mathbbm 1}}
+\newcommand{\Var}{\mathbb{V}}
+\newcommand{\Cov}{\mathbb{C}}
+\newcommand{\var}{\mathrm{Var}}
+\newcommand{\cov}{\mathrm{Cov}}
+\newcommand{\plim}{\mathrm{plim}}
+
+\pdfpagewidth 8.5in \pdfpageheight 11in \topmargin -0.5in
+\textheight 9in \textwidth 6.8in \oddsidemargin -0.2in \evensidemargin -0.2in
+
+\begin{document}
+\onehalfspacing \allowdisplaybreaks \setlength{\parindent}{20pt}
+\pagestyle{fancy} \lhead{Civil War Exposure and Violence} 
+\rhead{Replication Materials\\ Last Updated: 10/11/2013}
+\fancyfoot[C]{} \normalsize
+
+\section{Description of Dataset}
+	
+The dataset is compiled from 6 sources: 
+\begin{enumerate}
+	\item ESPN \emph{Soccernet} Website
+	\item \emph{Football Manager}, 2005
+	\item \emph{World Soccer Manager}, 2006
+	\item UCDP/PRIO Armed Conflict Dataset
+	\item Worldwide Governance Indicators (WGI) Project
+	\item World Bank's \emph{World Development Indicators} (WDI)
+\end{enumerate}
+
+\section{Description of Individual Files}
+
+The individual files to produce the tables and figures are described below:
+
+\begin{itemize}
+	\item \texttt{Results\_Table1\_final.ado}: This file displays the descriptive statistics for Table 1.
+	\item \texttt{Results\_Table2\_final.ado}: This file produces the regression results for Table 2.
+	\item \texttt{Figure\_1A.xls}: This file produces Figure 1A.
+	\item \texttt{Figure\_1B.xls}: This file produces Figure 1B.
+	\item \texttt{Figure\_2\_Final.ado}: This file produces Figure 2.
+	\item \texttt{Figure\_3\_Final.ado}: This file produces Figure 3.
+	\item \texttt{Figure\_4\_Final.ado}: This file produces Figure 4.
+\end{itemize}	
+
+\section{Updates}
+We have replicated the results for the paper. Aside from differences in rounding, the replication outcomes only differ from the published results in Column 1 of Table 2. The updated table is displayed on the next page.
+
+\begin{table}[h]
+\centering
+\caption{Updated Empirical Results for Table 2} 
+\resizebox{7 in}{!}{
+\begin{tabular}{l c c c c c c c}
+\hline  
+  & \bf{Yellow cards} & \bf{Yellow cards} & \bf{Yellow cards} & \bf{Red cards} & \bf{Goals scored} & \bf{Yellow cards} & \bf{Red cards}\\
+  & \bf{(1)} & \bf{(2)} & \bf{(3)} & \bf{(4)} & \bf{(5)} & \bf{(6)} & \bf{(7)} \\
+ \hline
+\emph{Country characteristics} \\
+Years of civil war & 0.0076 (2.63)*** & 0.0078 (2.51)** & 0.0075 (2.59)*** & 0.0126 (1.92)* & 0.0001 (0.02) & & \\
+Civil war years postbirth & & & & & &  0.0052 (1.86)* & 0.014 (2.13)** \\
+Civil war years prebirth & & & & & & 0.0036 (0.73) & -0.004 (0.41) \\
+Log GNI per capita & & 0.047 (1.06) &  & & & & \\
+Rule of law & & & -0.020 (0.40) & -0.143 (1.46) & 0.006 (0.15) & & \\
+\emph{Player characteristics}\\
+Age & 0.013 (5.65)*** & 0.013 (5.40)*** & 0.013 (5.64)*** & 0.013 (1.74)* & 0.021 (3.20)*** &0.013 (5.77)*** & 0.010 (1.54) \\
+Log transfer fee & 0.032 (2.33)** & 0.031 (2.22)** & 0.032 (2.33)** & 0.063 (2.11)** & 0.322 (11.88)*** & 0.032 (2.34)** & 0.062 (2.08)** \\
+Games started & 0.068 (36.09)*** & 0.068 (37.78)*** & 0.068 (36.17)*** & 0.051 (18.30)*** & 0.087 (40.16)*** & 0.068 (36.08)*** & 0.051 (18.42)*** \\
+Substitute & 0.040 (10.93)*** & 0.041 (10.83)*** & 0.040 (10.89)*** & 0.011 (0.89) & 0.069 (13.65)*** & 0.041 (10.99)*** & 0.011 (0.89) \\
+Defender & 1.715 (14.73)*** & 1.714 (14.79)*** & 1.714 (14.71)*** & 1.114 (7.20)*** & & 1.715 (14.70)*** & 1.120 (7.28)*** \\
+Forward & 1.397 (11.06)*** & 1.399 (11.13)*** & 1.396 (11.05)*** & 0.721 (4.00)*** & 1.647 (21.26)*** & 1.397 (11.01)*** & 0.726 (4.06)*** \\
+Midfield & 1.729 (12.67)*** & 1.728 (12.68)*** & 1.728 (12.66)*** & 0.890 (4.45)*** & 0.680 (11.31)*** & 1.729 (12.66)*** & 0.892 (4.50)*** \\
+Goalie & & & & & -18.217 (54.31)*** & & \\
+Goals & -0.022 (5.81)*** & -0.022 (6.29)*** & -0.022 (5.83)*** & -0.028 (3.37)*** & & -0.022 (5.84)*** & -0.028 (3.27)*** \\
+\emph{Soccer leagues} \\
+European Champions league & -0.030 (0.52) & -0.023 (0.38) & -0.036 (0.63) & -0.503 (2.43)** & 0.211 (2.45)** & -0.028 (0.46) & -0.453 (2.23)** \\
+French league & 0.265 (4.45)*** & 0.266 (4.27)*** & 0.260 (4.21)*** & 0.297 (2.62)*** & 0.078 (1.24) & 0.263 (4.15)*** & 0.334 (2.93)*** \\
+German league & \hl{0.318 (6.71)***} & 0.321 (6.58)*** & 0.317 (6.58)*** & 0.098 (0.63) & 0.244 (4.12)*** & 0.320 (6.33)*** & 0.112 (0.68) \\
+Italian league & 0.353 \hl{(6.51)***} & 0.356 (6.27)*** & 0.337 (5.11)*** & 0.629 (4.57)*** & -0.013 (0.22) & 0.353 (6.28)*** & 0.749 (7.10)*** \\
+Spanish league & 0.544 \hl{(10.88)***} & 0.548 (10.75)*** & 0.535 (9.54)*** & 0.649 (6.15)*** & 0.002 (0.03) & 0.552 (10.09)*** & 0.719 (6.70)*** \\
+Regional fixed effects & Yes & Yes & Yes & Yes & Yes & Yes & Yes \\
+Observations & 5,035 & 4,965 & 5,035 & 5,035 & 5,035 & 5,033 & 5,033 \\
+\hline
+\end{tabular}}
+\label{table:nonlin} 
+\end{table}
+
+
+	
+\end{document}
